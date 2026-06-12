@@ -51,6 +51,12 @@ This project was developed as a promotional and interactive game for Vitaminka w
 - Mobile-first optimizations
 - Enhanced animations and sound effects
 
+## Important Note
+
+This project uses Firebase for storing game data. The original Firebase configuration is no longer active, so some online features (such as score storage or leaderboard functionality) may not work when running the project locally.
+
+The game itself remains fully functional, and the code demonstrates the integration of Firebase services as part of the project's development.
+
 ## Author
 
 Arber Ramadani
