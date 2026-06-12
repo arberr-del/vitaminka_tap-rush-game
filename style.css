@@ -1,0 +1,350 @@
+/* --- Base Styles and Reset --- */
+:root {
+    --color-primary: #e63946;
+    /* Vitaminka Red */
+    --color-secondary: whitesmoke;
+    /* Light Background */
+    --color-success: #70e000;
+    --color-error: #d90429;
+    --color-gold: #ffb703;
+    /* Gold Color */
+}
+
+/* --- Global Leaderboard Styles --- */
+
+#high-score-display {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #eee;
+    margin-bottom: 20px;
+}
+
+#global-list {
+    margin-top: 15px;
+    text-align: left;
+}
+
+#global-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#global-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--color-primary);
+    /* Red stripe */
+}
+
+/* Style the top player specifically */
+#global-list li:first-child {
+    border-left: 4px solid var(--color-gold);
+    background: #fffdf0;
+    font-weight: bold;
+    transform: scale(1.02);
+}
+
+#global-list li b {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+/* Horizontal line separator */
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 15px 0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    line-height: 1.6;
+    padding: 20px;
+    touch-action: manipulation;
+}
+
+#app-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.rules {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+}
+
+/* --- Navigation --- */
+.hidden-screen {
+    display: none !important;
+}
+
+/* --- Screens --- */
+#landing-screen,
+#game-over-screen {
+    text-align: center;
+}
+
+/* --- Form --- */
+#registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.error-message {
+    color: var(--color-error);
+    font-size: 0.9rem;
+    display: none;
+    margin-top: 5px;
+}
+
+/* --- Buttons --- */
+button {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 100%;
+    margin-top: 10px;
+    transition: transform 0.1s;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* --- Game Board --- */
+#game-info {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+#game-board {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border: 3px dashed var(--color-primary);
+    background-color: #fff;
+    overflow: hidden;
+    cursor: crosshair;
+    border-radius: 8px;
+}
+
+/* --- Snacks --- */
+.snack-element {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.1s;
+    touch-action: none;
+}
+
+.snack-element:active {
+    transform: scale(0.9);
+}
+
+.snack-element.good {
+    background-image: url('assets/Stobi_Flips.png');
+}
+
+.snack-element.bad {
+    background-image: url('assets/Empty_wrapper.png');
+}
+
+/* --- Golden Snack --- */
+.snack-element.golden {
+    background-image: url('assets/Stobi_Flips.png');
+    border: 3px solid var(--color-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--color-gold);
+    animation: wobble 0.5s infinite alternate;
+    z-index: 10;
+}
+
+@keyframes wobble {
+    from {
+        transform: rotate(-5deg) scale(1.1);
+    }
+
+    to {
+        transform: rotate(5deg) scale(1.1);
+    }
+}
+
+/* --- Feedback Animations --- */
+.floating-text {
+    position: absolute;
+    font-weight: 900;
+    font-size: 1.5rem;
+    pointer-events: none;
+    z-index: 100;
+    animation: floatUp 0.8s forwards;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+.score-plus {
+    color: var(--color-success);
+}
+
+.score-minus {
+    color: var(--color-error);
+}
+
+.score-gold {
+    color: var(--color-gold);
+    font-size: 2rem;
+}
+
+/* --- Particles (Juice) --- */
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 50;
+}
+
+#timer-bar-container {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    margin-bottom: 10px;
+}
+
+#timer-bar {
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    transition: width 1s linear;
+}
+
+#combo-display {
+    transition: all 0.2s ease;
+}
+
+.combo-fire {
+    color: #ffb703 !important;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ffaa00;
+    font-size: 1.3rem;
+    font-weight: 900;
+    display: inline-block;
+    animation: pulse-shake 0.5s infinite;
+}
+
+@keyframes pulse-shake {
+    0% {
+        transform: scale(1);
+        rotate: (0deg);
+    }
+
+    25% {
+        transform: scale(1.1);
+        rotate: (-2deg);
+    }
+
+    50% {
+        transform: scale(1);
+        rotate: (0deg);
+    }
+
+    75% {
+        transform: scale(1.1);
+        rotate: (2deg);
+    }
+
+    100% {
+        transform: scale(1);
+        rotate: (0deg);
+    }
+}
+
+.fever-active {
+    border: 5px solid #ffcc00 !important;
+    box-shadow: 0 0 20px #ffea00, inset 0 0 20px #ffaa00;
+    animation: fever-pulse 0.5s infinite alternate;
+}
+
+@keyframes fever-pulse {
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.3);
+    }
+}

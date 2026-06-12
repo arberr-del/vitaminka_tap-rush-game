@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Vitaminka Tap Rush Game</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Vitaminka Tap Rush!</h1>
+    </header>
+
+    <main id="app-container">
+      <section id="landing-screen" class="active-screen">
+        <h2>Welcome, Snack Champion!</h2>
+        <p class="intro-text">
+          Ready to test your reaction speed? Tap the delicious
+          <b>Vitaminka snacks</b> before they disappear!
+        </p>
+
+        <ul class="rules">
+          <li>🎯 Tap snacks to gain points</li>
+          <li>🔥 Build your <b>Combo</b> for x2, x3,... multipliers!</li>
+          <li>❌ Avoid empty wrappers (-20 pts)</li>
+          <li>⏱ You have 65 seconds</li>
+        </ul>
+
+        <div id="high-score-display">
+          <div class="personal-best-section">
+            <h3>🥇 Local Best Score: <span id="best-score-value">0</span></h3>
+          </div>
+
+          <hr />
+
+          <div class="global-leaderboard-section">
+            <h3>🌍 World Top 5</h3>
+            <div id="global-list">Loading...</div>
+          </div>
+        </div>
+
+        <form id="registration-form">
+          <h3>Start Your Rush!</h3>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              required
+              minlength="2"
+              autocomplete="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" required min="1" autocomplete="age" />
+          </div>
+          <button type="submit" id="register-btn">Register & Play</button>
+        </form>
+      </section>
+
+      <section id="game-screen" class="hidden-screen">
+        <div id="game-info">
+          <span id="score-display">Score: 0</span>
+          <span id="timer-display">Time: 65s</span>
+          <span id="combo-display">Combo: 0</span>
+        </div>
+
+        <div id="timer-bar-container">
+          <div id="timer-bar"></div>
+        </div>
+
+        <div id="game-board"></div>
+      </section>
+
+      <section id="game-over-screen" class="hidden-screen">
+        <h2>Game Over!</h2>
+        <p>Your final score is: <span id="final-score">0</span></p>
+        <p id="high-score-message"></p>
+        <button id="restart-btn">Play Again</button>
+        <button id="main-menu-btn">Return to Main Menu</button>
+      </section>
+    </main>
+
+    <footer style="text-align: center">
+      <p>&copy; 2025 Vitaminka Game</p>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
